@@ -11,3 +11,36 @@
 .circularButton {
   border-radius: 50%;
 }
+
+.myButton {
+  font-weight: bold;
+  font-size: 0.875rem;
+  background-color: #f7eeee;
+  padding: 12px 24px;
+  border-radius: 8px;
+  color: black;
+  transition: all 150ms ease;
+  cursor: pointer;
+  border: none;
+  width: 100%;
+  margin: 0 1em 0 1em;
+}
+
+.myButton:hover {
+  background-color: #e3d5d5;
+}
+
+.myButton:active {
+  background-color: #cfc0c0;
+}
+
+.myButton:focus-visible {
+  box-shadow: 0 4px 20px 0 rgba(61, 71, 82, 0.1),
+    0 0 0 5px rgba(0, 127, 255, 0.5);
+  outline: none;
+}
+
+.circularButton {
+  width: 100%;
+  border-radius: 50%;
+}

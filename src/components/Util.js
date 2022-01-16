@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 export const days = [
   {
     id: 1,
@@ -66,3 +68,22 @@ export const formats = [
     name: "WATCH",
   },
 ];
+
+export function useSelectedElements(lista) {
+  const [selectedElements, setSelectedElements] = useState([]);
+
+  const addElement = (id) => {
+    setSelectedElements([
+      ...selectedElements,
+      ...lista.filter((element) => element.id === id),
+    ]);
+  };
+
+  const removeElement = (id) => {
+    setSelectedElements(
+      selectedElements.filter((element) => element.id !== id)
+    );
+  };
+
+  return [addElement, removeElement];
+}

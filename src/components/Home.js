@@ -1,73 +1,16 @@
 import "../App.css";
 import { useState } from "react";
-import { Typography, Grid, Paper, Button } from "@mui/material";
-import { days, interests, formats } from "./Util";
-
-function useSelectedElements(lista) {
-  const [selectedElements, setSelectedElements] = useState([]);
-
-  const addElement = (id) => {
-    setSelectedElements([
-      ...selectedElements,
-      ...lista.filter((element) => element.id === id),
-    ]);
-  };
-
-  const removeElement = (id) => {
-    setSelectedElements(
-      selectedElements.filter((element) => element.id !== id)
-    );
-  };
-
-  return [addElement, removeElement];
-}
+import { Typography, Grid } from "@mui/material";
+import { days, interests, formats, useSelectedElements } from "./Util";
+import { TimePicker } from "./TimePicker";
+import { Element } from "./Element";
+import { Slider } from "./Slider";
 
 export const Home = () => {
   const [addDay, removeDay] = useSelectedElements(days);
   const [addInterest, removeInterest] = useSelectedElements(interests);
   const [addFormat, removeFormat] = useSelectedElements(formats);
-
-  //   const [selectedInterests, setSelectedInterests] = useState([]);
-  //   const [selectedFormats, setSelectedFormats] = useState([]);
-
-  //   const addInterest = (interestId) => {
-  //     setSelectedInterests([
-  //       ...selectedInterests,
-  //       ...interests.filter((interest) => interest.id === interestId),
-  //     ]);
-  //   };
-
-  //   const removeInterest = (interestId) => {
-  //     setSelectedInterests(
-  //       selectedInterests.filter((interest) => interest.id !== interestId)
-  //     );
-  //   };
-
-  //   const addFormat = (formatId) => {
-  //     setSelectedFormats([
-  //       ...selectedFormats,
-  //       ...formats.filter((format) => format.id === formatId),
-  //     ]);
-  //   };
-
-  //   const removeFormat = (formatId) => {
-  //     setSelectedFormats(
-  //       selectedFormats.filter((format) => format.id !== formatId)
-  //     );
-  //   };
-
-  //   const addDay = (formatId) => {
-  //     setSelectedFormats([
-  //       ...selectedFormats,
-  //       ...formats.filter((format) => format.id === formatId),
-  //     ]);
-  //   };
-
-  //   const removeFormat = (formatId) => {
-  //     setSelectedFormats(
-  //       selectedFormats.filter((format) => format.id !== formatId)
-  //     );
-  //   };
+  const [hour, setHour] = useState(null);
 
   return (
     <>
@@ -126,39 +69,31 @@ export const Home = () => {
           />
         ))}
       </Grid>
-    </>
-  );
-};
-
-const Element = ({ circular = false, addElement, removeElement, text, id }) => {
-  const [selected, setSelected] = useState(false);
-  const handleClick = (addElement, removeElement, id) => {
-    console.log("click");
-    if (!selected) {
-      addElement(id);
-    } else {
-      removeElement(id);
-    }
-
-    setSelected(!selected);
-  };
-
-  return (
-    <Grid
-      onClick={() => handleClick(addElement, removeElement, id)}
-      item
-      xs={circular ? 1 : 4}
-      sm={circular ? 1 : 4}
-      md={circular ? 1 : 4}
-    >
-      <Button
-        fullWidth={circular ? false : true}
-        cssClass={circular ? "circularButton" : ""}
-        variant={selected ? "contained" : "outlined"}
-        size="large"
+      <Typography variant="h3">At what time?</Typography>
+      <Grid
+        container
+        rowSpacing={1}
+        spacing={{ xs: 2, md: 3 }}
+        columns={{ xs: 4, sm: 8, md: 12 }}
       >
-        {text}
-      </Button>
-    </Grid>
+        <Grid item xs={4} sm={8} md={12}>
+          <TimePicker hour={hour} setHour={setHour} />
+        </Grid>
+      </Grid>
+      <Typography variant="h3">Choose news duration</Typography>
+      <Grid
+        container
+        rowSpacing={1}
+        spacing={{ xs: 2, md: 3 }}
+        columns={{ xs: 4, sm: 8, md: 12 }}
+      >
+        <Grid item xs={4} sm={4} md={4} />
+
+        <Grid item xs={4} sm={4} md={4}>
+          <Slider></Slider>
+        </Grid>
+        <Grid item xs={4} sm={4} md={4} />
+      </Grid>
+    </>
   );
 };
