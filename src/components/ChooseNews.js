@@ -15,7 +15,7 @@ export const ChooseNews = () => {
   const [hour, setHour] = useState(null);
 
   return (
-    <>
+    <div class="chooseNews">
       <Title text={"Pick your interest!"} />
       <Grid
         container
@@ -111,6 +111,6 @@ export const ChooseNews = () => {
         </Grid>
         <Grid item xs={4} sm={4} md={4} />
       </Grid>
-    </>
+    </div>
   );
 };

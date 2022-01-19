@@ -20,5 +20,11 @@
     "days": [0, 1, 2, 3, 4, 5],
     "time": "09:20",
     "duration": "400"
+  },
+  {
+    "id": 3,
+    "name": "Andrea",
+    "surname": "Ghiglione",
+    "mail": "andrea@gmail.com"
   }
 ]

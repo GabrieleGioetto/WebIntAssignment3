@@ -23,7 +23,7 @@ const CustomButtonRoot = styled("button")`
   cursor: pointer;
   border: none;
   width: 100%;
-  margin: 0 1em 0 1em;
+  margin: 0 0em 0 0em;
 
   &:hover {
     background-color: ${pink[600]};
@@ -66,7 +66,7 @@ const CustomButtonRootClicked = styled("button")`
   cursor: pointer;
   border: none;
   width: 100%;
-  margin: 0 1em 0 1em;
+  margin: 0 0em 0 0em;
 
   &:hover {
     background-color: ${black[600]};
@@ -97,7 +97,7 @@ const CustomButtonRootCircular = styled("button")`
   cursor: pointer;
   border: none;
   border-radius: 50%;
-  margin: 0 1em 0 1em;
+  margin: 0 0em 0 0em;
   padding: 12px 12px;
 
   &:hover {
@@ -129,7 +129,7 @@ const CustomButtonRootCircularClicked = styled("button")`
   cursor: pointer;
   border: none;
   border-radius: 50%;
-  margin: 0 1em 0 1em;
+  margin: 0 0 0 0;
   padding: 12px 12px;
 
   &:hover {

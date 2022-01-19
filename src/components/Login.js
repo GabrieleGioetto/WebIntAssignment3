@@ -15,7 +15,6 @@ import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { SettingsInputSvideoRounded } from "@mui/icons-material";
-import usersData from "../data/users.json";
 
 function Copyright(props) {
   return (
@@ -53,8 +52,14 @@ export const Login = ({ setUser }) => {
   const handleSubmit = (event) => {
     event.preventDefault();
 
+    const usersData = require("../data/users.json");
+
+    console.log(usersData);
+
     const data = new FormData(event.currentTarget);
-    const users = usersData.filter((u) => u.mail == data.get("email"));
+    const users = usersData.filter((u) => u.mail === data.get("email"));
+
+    console.log(users);
 
     if (users.length > 0) {
       setUser(users[0]);
