@@ -42,11 +42,10 @@ export const Element = ({
         {text}
       </Button> */}
       <MyButton
-        fullWidth={circular ? false : true}
         cssClass={classButton}
         circular={circular}
-        size="large"
         text={text}
+        selected={selected}
       />
     </Grid>
   );

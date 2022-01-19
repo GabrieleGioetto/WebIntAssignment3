@@ -13,6 +13,7 @@ import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { SettingsInputSvideoRounded } from "@mui/icons-material";
+import usersData from "../data/users.json";
 
 function Copyright(props) {
   return (
@@ -45,7 +46,9 @@ export const Login = ({ setUser }) => {
       password: data.get("password"),
     });
 
-    setUser({ email: data.get("email") });
+    const user = usersData.filter((u) => u.mail == data.get("email"))[0];
+
+    setUser(user);
   };
 
   return (

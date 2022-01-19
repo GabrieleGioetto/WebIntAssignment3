@@ -1,0 +1,24 @@
+[
+  {
+    "id": 1,
+    "name": "John",
+    "surname": "Doe",
+    "mail": "john.doe@gmail.com",
+    "interests": [1, 2],
+    "format": [0],
+    "days": [0, 1, 2, 3, 4, 5, 6],
+    "time": "08:50",
+    "duration": "600"
+  },
+  {
+    "id": 2,
+    "name": "Gabriele",
+    "surname": "Gioetto",
+    "mail": "gabriele.gioetto@gmail.com",
+    "interests": [3, 4],
+    "format": [0],
+    "days": [0, 1, 2, 3, 4, 5],
+    "time": "09:20",
+    "duration": "400"
+  }
+]
