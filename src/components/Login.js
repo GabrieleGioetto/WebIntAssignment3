@@ -1,6 +1,8 @@
 import * as React from "react";
 import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
+import Snackbar from "@mui/material/Snackbar";
+import Alert from "@mui/material/Alert";
 import CssBaseline from "@mui/material/CssBaseline";
 import TextField from "@mui/material/TextField";
 import FormControlLabel from "@mui/material/FormControlLabel";
@@ -36,19 +38,31 @@ function Copyright(props) {
 const theme = createTheme();
 
 export const Login = ({ setUser }) => {
+  const [alert, setAlert] = React.useState({
+    open: false,
+    vertical: "bottom",
+    horizontal: "center",
+  });
+
+  const { vertical, horizontal, open } = alert;
+
+  const handleClose = () => {
+    setAlert({ ...alert, open: false });
+  };
+
   const handleSubmit = (event) => {
     event.preventDefault();
 
     const data = new FormData(event.currentTarget);
+    const users = usersData.filter((u) => u.mail == data.get("email"));
 
-    console.log({
-      email: data.get("email"),
-      password: data.get("password"),
-    });
+    if (users.length > 0) {
+      setUser(users[0]);
+    } else {
+      console.log("Error: No user found with that email");
 
-    const user = usersData.filter((u) => u.mail == data.get("email"))[0];
-
-    setUser(user);
+      setAlert({ ...alert, open: true });
+    }
   };
 
   return (
@@ -107,6 +121,17 @@ export const Login = ({ setUser }) => {
             >
               Sign In
             </Button>
+            <Snackbar
+              anchorOrigin={{ vertical, horizontal }}
+              open={open}
+              autoHideDuration={6000}
+              onClose={handleClose}
+            >
+              <Alert onClose={handleClose} severity="error">
+                Wrong email/password
+              </Alert>
+            </Snackbar>
+
             <Grid container>
               <Grid item xs>
                 <Link href="#" variant="body2">
