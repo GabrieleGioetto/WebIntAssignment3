@@ -3,6 +3,14 @@
   padding: 2em;
 }
 
+.yourNews {
+  overflow: hidden;
+}
+
+.newsContainer::-webkit-scrollbar {
+  display: none;
+}
+
 .chooseNews > * {
   margin-bottom: 2em;
 }
