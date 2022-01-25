@@ -1,0 +1,65 @@
+[
+  {
+    "id": 1,
+    "title": "Results Serie A",
+    "interest": {
+      "name": "Sport",
+      "id": 1
+    },
+    "newspaper": "New York Times"
+  },
+  {
+    "id": 2,
+    "title": "Results Premier League",
+    "interest": {
+      "name": "Sport",
+      "id": 1
+    },
+    "newspaper": "New York Times"
+  },
+  {
+    "id": 3,
+    "title": "Djokovic banned from Australia",
+    "interest": {
+      "name": "Sport",
+      "id": 1
+    },
+    "newspaper": "The Mirror"
+  },
+  {
+    "id": 4,
+    "title": "Latest polls for French presidency",
+    "interest": {
+      "name": "Politics",
+      "id": 2
+    },
+    "newspaper": "Le Monde"
+  },
+  {
+    "id": 5,
+    "title": "Tension in Ukraine",
+    "interest": {
+      "name": "Politics",
+      "id": 2
+    },
+    "newspaper": "The Mirror"
+  },
+  {
+    "id": 6,
+    "title": "Boris Johnson asked to resign",
+    "interest": {
+      "name": "Politics",
+      "id": 2
+    },
+    "newspaper": "The Guardian"
+  },
+  {
+    "id": 7,
+    "title": "Lifted COVID rules in Ireland",
+    "interest": {
+      "name": "Politics",
+      "id": 2
+    },
+    "newspaper": "The Guardian"
+  }
+]

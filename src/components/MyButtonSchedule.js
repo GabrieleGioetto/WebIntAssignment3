@@ -49,6 +49,6 @@ function CustomButton({ ...props }) {
   return <ButtonUnstyled {...props} component={CustomButtonRoot} />;
 }
 
-export const MyButtonSchedule = ({ text, ...props }) => {
-  return <CustomButton>{text}</CustomButton>;
-};
+export const MyButtonSchedule = ({ text, ...props }) => (
+  <CustomButton {...props}>{text}</CustomButton>
+);

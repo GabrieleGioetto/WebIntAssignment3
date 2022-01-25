@@ -18,19 +18,7 @@ import { SettingsInputSvideoRounded } from "@mui/icons-material";
 
 const theme = createTheme();
 
-export const Login = ({ setUser, setRegister }) => {
-  const [alert, setAlert] = React.useState({
-    open: false,
-    vertical: "bottom",
-    horizontal: "center",
-  });
-
-  const { vertical, horizontal, open } = alert;
-
-  const handleClose = () => {
-    setAlert({ ...alert, open: false });
-  };
-
+export const Register = ({ setUser }) => {
   const handleSubmit = (event) => {
     event.preventDefault();
 
@@ -39,21 +27,21 @@ export const Login = ({ setUser, setRegister }) => {
     console.log(usersData);
 
     const data = new FormData(event.currentTarget);
-    const users = usersData.filter((u) => u.mail === data.get("email"));
 
-    console.log(users);
+    const usersIds = usersData.map((u) => u.id);
+    const maxUsedId = Math.max(...usersIds);
 
-    if (users.length > 0) {
-      setUser(users[0]);
-    } else {
-      console.log("Error: No user found with that email");
+    const newId = maxUsedId + 1;
 
-      setAlert({ ...alert, open: true });
+    let newUser = {
+      id: newId,
+    };
+
+    for (let pair of data.entries()) {
+      newUser[pair[0]] = pair[1];
     }
-  };
 
-  const handleRegister = () => {
-    setRegister(true);
+    setUser(newUser);
   };
 
   return (
@@ -72,7 +60,7 @@ export const Login = ({ setUser, setRegister }) => {
             <LockOutlinedIcon />
           </Avatar>
           <Typography component="h1" variant="h5">
-            Sign in
+            Sign up
           </Typography>
           <Box
             component="form"
@@ -84,9 +72,9 @@ export const Login = ({ setUser, setRegister }) => {
               margin="normal"
               required
               fullWidth
-              id="email"
+              id="mail"
               label="Email Address"
-              name="email"
+              name="mail"
               autoComplete="email"
               autoFocus
             />
@@ -100,6 +88,23 @@ export const Login = ({ setUser, setRegister }) => {
               id="password"
               autoComplete="current-password"
             />
+            <TextField
+              margin="normal"
+              required
+              fullWidth
+              name="name"
+              label="name"
+              id="name"
+            />
+            <TextField
+              margin="normal"
+              required
+              fullWidth
+              name="surname"
+              label="surname"
+              type="surname"
+              id="surname"
+            />
             <Button
               type="submit"
               fullWidth
@@ -108,22 +113,6 @@ export const Login = ({ setUser, setRegister }) => {
             >
               Sign In
             </Button>
-            <Snackbar
-              anchorOrigin={{ vertical, horizontal }}
-              open={open}
-              autoHideDuration={6000}
-              onClose={handleClose}
-            >
-              <Alert onClose={handleClose} severity="error">
-                Wrong email/password
-              </Alert>
-            </Snackbar>
-
-            <Grid container>
-              <Grid item xs>
-                <Button onClick={handleRegister}>Sign up a new account</Button>
-              </Grid>
-            </Grid>
           </Box>
         </Box>
       </Container>

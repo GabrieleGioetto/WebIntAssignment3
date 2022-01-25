@@ -21,9 +21,7 @@ export const Element = ({
     setSelected(!selected);
   };
 
-  const size = circular ? 1 : 4;
-
-  const classButton = `${circular ? "circularButton" : "normalButton"}`;
+  const size = circular ? null : 4;
 
   return (
     <Grid
@@ -33,20 +31,7 @@ export const Element = ({
       sm={size}
       md={size}
     >
-      {/* <Button
-        fullWidth={circular ? false : true}
-        cssClass={circular ? "circularButton" : ""}
-        variant={selected ? "contained" : "outlined"}
-        size="large"
-      >
-        {text}
-      </Button> */}
-      <MyButton
-        cssClass={classButton}
-        circular={circular}
-        text={text}
-        selected={selected}
-      />
+      <MyButton circular={circular} text={text} selected={selected} />
     </Grid>
   );
 };

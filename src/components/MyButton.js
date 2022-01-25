@@ -44,8 +44,7 @@ const CustomButtonRoot = styled("button")`
   }
 
   &.${buttonUnstyledClasses.disabled} {
-    opacity: 0.5;
-    cursor: not-allowed;
+    background-color: ${pink[500]};
   }
 `;
 
@@ -83,8 +82,7 @@ const CustomButtonRootClicked = styled("button")`
   }
 
   &.${buttonUnstyledClasses.disabled} {
-    opacity: 0.5;
-    cursor: not-allowed;
+    background-color: ${pink[500]};
   }
 `;
 
@@ -115,8 +113,7 @@ const CustomButtonRootCircular = styled("button")`
   }
 
   &.${buttonUnstyledClasses.disabled} {
-    opacity: 0.5;
-    cursor: not-allowed;
+    background-color: ${pink[500]};
   }
 `;
 
@@ -124,7 +121,7 @@ const CustomButtonRootCircularClicked = styled("button")`
   font-weight: bold;
   font-size: 0.875rem;
   background-color: ${black[500]};
-  color: black;
+  color: white;
   transition: all 50ms ease;
   cursor: pointer;
   border: none;
@@ -151,13 +148,11 @@ const CustomButtonRootCircularClicked = styled("button")`
   }
 
   &.${buttonUnstyledClasses.disabled} {
-    opacity: 0.5;
-    cursor: not-allowed;
+    background-color: ${pink[500]};
   }
 `;
 
 function CustomButton({ circular, selected, ...props }) {
-  console.log({ circular });
   if (!selected) {
     return circular ? (
       <ButtonUnstyled {...props} component={CustomButtonRootCircular} />
@@ -173,10 +168,20 @@ function CustomButton({ circular, selected, ...props }) {
   );
 }
 
-export const MyButton = ({ text, circular, selected, ...props }) => {
-  console.log(props);
+export const MyButton = ({
+  text,
+  circular,
+  selected,
+  disabled = false,
+  ...props
+}) => {
   return (
-    <CustomButton circular={circular} selected={selected}>
+    <CustomButton
+      circular={circular}
+      selected={selected}
+      disabled={disabled}
+      props
+    >
       {text}
     </CustomButton>
   );

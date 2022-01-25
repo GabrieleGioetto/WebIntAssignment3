@@ -20,18 +20,25 @@ function valuetext(value) {
   return `${value} min`;
 }
 
-const DiscreteSliderMarks = () => {
+const DiscreteSliderMarks = ({ setDuration }) => {
+  const handleChange = (event, newValue) => {
+    if (typeof newValue === "number") {
+      setDuration(newValue);
+    }
+  };
+
   const maxValue = 60;
   return (
     <Slider
       aria-label="Select duration of news"
       defaultValue={10}
       getAriaValueText={valuetext}
-      step={10}
+      step={1}
       valueLabelDisplay="auto"
       marks={marks}
       max={maxValue}
       valueLabelFormat={(value) => `${value} min`}
+      onChange={handleChange}
     />
   );
 };

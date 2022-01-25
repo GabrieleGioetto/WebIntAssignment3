@@ -8,6 +8,7 @@ import TheGuardianLogo from "./../images/the_guardian.png";
 import LeMondeLogo from "./../images/le_monde.png";
 import NewYorkTimesLogo from "./../images/new_york_times.png";
 import TheMirrorLogo from "./../images/the_mirror.png";
+import MyDialogNewspaper from "./MyDialogNewspaper";
 
 const card = (image_name) => {
   const logos = {
@@ -26,12 +27,19 @@ const card = (image_name) => {
   );
 };
 
-export function MyCardWithImage({ image_name }) {
+export function MyCardWithImage({ newspaper, image_name }) {
+  const [open, setOpen] = React.useState(false);
+
   return (
     <Box>
-      <Card sx={{ width: 200 }} variant="outlined">
+      <Card
+        onClick={() => setOpen(true)}
+        sx={{ width: 200 }}
+        variant="outlined"
+      >
         {card(image_name)}
       </Card>
+      <MyDialogNewspaper newspaper={newspaper} open={open} setOpen={setOpen} />
     </Box>
   );
 }

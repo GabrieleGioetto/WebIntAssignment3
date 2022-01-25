@@ -85,5 +85,5 @@ export function useSelectedElements(lista) {
     );
   };
 
-  return [addElement, removeElement];
+  return [selectedElements, addElement, removeElement];
 }
